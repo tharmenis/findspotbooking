@@ -4,7 +4,7 @@ node_modules/
 .env
 .env.local
 .commandcode/
-.context/
+context/
 # widget build output (widget/ -> server/src/public per 06-express-app-structure.md)
 server/src/public/
 
