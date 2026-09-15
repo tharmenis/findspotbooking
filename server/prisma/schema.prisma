@@ -1,0 +1,39 @@
+// Local cache database — physically separate from WordPress's MySQL.
+// WordPress is the source of truth; Express only caches listing display
+// fields pushed via POST /internal/listings/sync (see 01-data-model.md).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Listing {
+  publicId     String   @id @map("public_id") @db.VarChar(36)
+  title        Json     @map("title") // array of {language_code, title} objects
+  logoUrl      String?  @map("logo_url") @db.VarChar(500)
+  contactPhone String?  @map("contact_phone") @db.VarChar(20)
+  contactEmail String?  @map("contact_email") @db.VarChar(191)
+  enabled      Boolean  @default(true)
+  blockedDates Json?     @map("blocked_dates") // array of YYYY-MM-DD strings from WordPress
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  domains ListingDomain[]
+
+  @@map("listings")
+}
+
+model ListingDomain {
+  id        Int      @id @default(autoincrement())
+  publicId  String   @map("public_id") @db.VarChar(36)
+  domain    String   @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  listing Listing @relation(fields: [publicId], references: [publicId], onDelete: Cascade)
+
+  @@unique([publicId, domain])
+  @@index([publicId])
+  @@map("listing_domains")
+}

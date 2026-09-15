@@ -1,0 +1,603 @@
+/* Findspot booking widget — self-contained stylesheet.
+ *
+ * Loaded inside the shadow root on client sites (04-widget-embedding.md), so
+ * it must be fully self-contained: no inheritance from the host page, and
+ * @font-face declarations must live here (a font loaded at document level is
+ * not available inside a shadow tree).
+ *
+ * Layout follows 03-reservation-form-ui.md: three stacked pieces (header
+ * card, form/success card, attribution), responsive via container queries
+ * (the widget's real width depends on where it sits on the host page, not the
+ * browser viewport).
+ */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: 'FSB System';
+  src: local('system-ui'), local('-apple-system'), local('Segoe UI'), local('Roboto');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FSB Greek';
+  src: local('Noto Sans'), local('Arial');
+  font-display: swap;
+  unicode-range: U+0370-03FF; /* Greek block */
+}
+
+/* ---------- Shell / cards ---------- */
+.fsb-shell {
+  container-type: inline-size;
+  font-family: 'FSB Greek', 'FSB System', system-ui, sans-serif;
+  color: #1f2933;
+  line-height: 1.5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  box-sizing: border-box;
+  height: 100%;
+ 
+}
+.fsb-shell *,
+.fsb-shell *::before,
+.fsb-shell *::after {
+  box-sizing: inherit;
+     max-width: 720px;
+}
+
+.fsb-card {
+  width:100%;
+  background: #ffffff;
+  border: 1px solid #e4e7eb;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+  padding: 20px;
+}
+.fsb-card + .fsb-card {
+  margin-top: 16px;
+}
+
+.fsb-state-card {
+  text-align: center;
+  padding: 32px 20px;
+}
+.fsb-state-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+.fsb-state-card p {
+  margin: 0;
+  color: #616e7c;
+}
+.fsb-loading {
+  color: #616e7c;
+}
+
+/* ---------- Header card ---------- */
+.fsb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+}
+.fsb-header-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.fsb-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #f0f2f5;
+}
+.fsb-logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #52606d;
+}
+.fsb-header-text {
+  min-width: 0;
+}
+.fsb-title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+.fsb-location {
+  margin: 4px 0 0;
+  color: #616e7c;
+  font-size: 0.9rem;
+}
+.fsb-contact {
+  margin: 4px 0 0;
+  color: #616e7c;
+  font-size: 0.85rem;
+  overflow-wrap: break-word;
+}
+.fsb-contact-link {
+  color: #1a73e8;
+  text-decoration: none;
+}
+.fsb-contact-link:hover,
+.fsb-contact-link:focus-visible {
+  text-decoration: underline;
+}
+.fsb-contact-sep {
+  margin: 0 2px;
+  color: #9aa5b1;
+}
+.fsb-unavailable {
+  margin: 6px 0 0;
+  color: #b45309;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+/* Language switcher: custom select (flag + name trigger, dropdown menu) */
+.fsb-lang-select {
+  position: relative;
+  flex-shrink: 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.fsb-lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid #d2d6dc;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f2933;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.fsb-lang-trigger:hover {
+  border-color: #9aa5b1;
+}
+.fsb-lang-trigger:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 1px;
+}
+.fsb-lang-flag {
+  width: 22px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.fsb-lang-caret {
+  font-size: 0.7rem;
+  color: #7b8794;
+}
+.fsb-lang-menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  right: 0;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  min-width: 160px;
+  background: #ffffff;
+  border: 1px solid #e4e7eb;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.12);
+}
+.fsb-lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 8px;
+  border: none;
+  background: transparent;
+  color: #1f2933;
+  font: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.fsb-lang-option:hover {
+  background: #f0f2f5;
+}
+.fsb-lang-option:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: -1px;
+}
+.fsb-lang-option-active {
+  color: #1a73e8;
+  font-weight: 600;
+}
+.fsb-lang-option-name {
+  flex: 1;
+}
+.fsb-lang-check {
+  color: #1a73e8;
+  font-size: 0.8rem;
+}
+
+/* ---------- Form card ---------- */
+.fsb-form {
+  display: grid;
+  gap: 16px;
+}
+.fsb-field {
+  display: grid;
+  gap: 6px;
+  position: relative;
+  /* Reserve room at the bottom for the absolutely-positioned error so a
+     field/row doesn't shift when a validation message appears or clears. */
+  padding-bottom: 1.25rem;
+}
+.fsb-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #3e4c59;
+}
+.fsb-input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #d2d6dc;
+  border-radius: 8px;
+  font: inherit;
+  color: #1f2933;
+  background: #ffffff;
+}
+.fsb-input:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 1px;
+  border-color: #1a73e8;
+}
+.fsb-input:disabled {
+  background: #f5f6f8;
+  color: #7b8794;
+  cursor: not-allowed;
+}
+.fsb-field-invalid .fsb-input,
+.fsb-field-invalid .fsb-textarea {
+  border-color: #d64545;
+}
+.fsb-error {
+  margin: 0;
+  /* 10% smaller than before (0.8rem) so the reserved space stays tight. */
+  font-size: 0.72rem;
+  line-height: 1.2;
+  color: #d64545;
+}
+/* Validation messages directly under a field are taken out of flow and
+   pinned to the bottom of the reserved .fsb-field padding, so a message
+   never reflows the field, its siblings, or the grid rows. The comments
+   field keeps its error inside .fsb-field-footer (not a direct child),
+   which already reserves a line and needs the inline layout. */
+.fsb-field > .fsb-error {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.fsb-slot-taken {
+  font-weight: 500;
+}
+
+/* Field helper row: error message or character hint under a field */
+.fsb-field-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 1rem;
+}
+.fsb-hint {
+  font-size: 0.8rem;
+  color: #7b8794;
+}
+
+/* intl-tel-input: the plugin wraps the tel input in .iti and injects its own
+   country-selector structure. We restyle it to match the form card. */
+.fsb-form .iti {
+  display: block;
+  width: 100%;
+}
+.fsb-form .iti__tel-input {
+  /* Match .fsb-input sizing. */
+  width: 100%;
+  padding: 9px 12px 9px 12px;
+  border: 1px solid #d2d6dc;
+  border-radius: 8px;
+  font: inherit;
+  color: #1f2933;
+  background: #ffffff;
+}
+.fsb-form .iti__tel-input:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 1px;
+  border-color: #1a73e8;
+}
+.fsb-form .iti--allow-dropdown .iti__tel-input,
+.fsb-form .iti--separate-dial-code .iti__tel-input {
+  padding-right: 12px;
+}
+.fsb-field-invalid .iti__tel-input {
+  border-color: #d64545;
+}
+
+/* ---------- Date picker (react-day-picker) ---------- */
+.fsb-datepicker {
+  position: relative;
+}
+.fsb-datepicker-popup {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 300px;
+  max-width: none; /* the shell's descendant max-width must not squeeze the popup */
+  background: #ffffff;
+  border: 1px solid #e4e7eb;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.12);
+  padding: 12px;
+}
+
+/* Theme react-day-picker with the widget's tokens. Structural rules
+   (table grid, day-cell layout) come from react-day-picker/style.css; we
+   only restyle the CSS variables and the pieces we own. */
+.fsb-rdp {
+  --rdp-accent-color: #1a73e8;
+  --rdp-accent-background-color: #e8f0fe;
+  --rdp-day-height: 40px;
+  --rdp-day-width: 40px;
+  --rdp-day_button-border-radius: 8px;
+  --rdp-day_button-height: 36px;
+  --rdp-day_button-width: 36px;
+  --rdp-today-color: #1a73e8;
+  --rdp-nav_button-height: 2rem;
+  --rdp-nav_button-width: 2rem;
+  font-family: inherit;
+  color: #1f2933;
+}
+.fsb-rdp .fsb-rdp-nav {
+  margin-bottom: 4px;
+}
+.fsb-rdp .fsb-rdp-button-prev,
+.fsb-rdp .fsb-rdp-button-next {
+  border: none;
+  background: transparent;
+  color: #3e4c59;
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: 6px;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.fsb-rdp .fsb-rdp-button-prev:hover,
+.fsb-rdp .fsb-rdp-button-next:hover {
+  background: #f0f2f5;
+}
+.fsb-rdp .fsb-rdp-caption {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.fsb-rdp .fsb-rdp-weekdays {
+  margin-bottom: 4px;
+}
+.fsb-rdp .fsb-rdp-weekday {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #616e7c;
+  padding: 4px 0;
+}
+.fsb-rdp .fsb-rdp-day-btn:hover {
+  background: #f0f2f5;
+}
+.fsb-rdp .fsb-rdp-selected .fsb-rdp-day-btn {
+  background: var(--rdp-accent-color);
+  color: #ffffff;
+  font-weight: 600;
+}
+.fsb-rdp .fsb-rdp-today:not(.fsb-rdp-selected) .fsb-rdp-day-btn {
+  color: var(--rdp-accent-color);
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px var(--rdp-accent-color);
+}
+.fsb-rdp .fsb-rdp-disabled .fsb-rdp-day-btn {
+  color: #b8c1cc;
+  cursor: not-allowed;
+}
+.fsb-rdp .fsb-rdp-outside .fsb-rdp-day-btn {
+  color: #c1c9d2;
+}
+
+/* Row of paired fields. Desktop: side by side; narrow: single column. */
+.fsb-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Comments textarea */
+.fsb-textarea {
+  resize: vertical;
+  min-height: 72px;
+  font: inherit;
+  line-height: 1.5;
+}
+
+/* Guests stepper */
+.fsb-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #d2d6dc;
+  border-radius: 8px;
+  padding: 4px;
+  justify-content:space-between;
+  width: 100%;
+}
+.fsb-stepper-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  line-height: 1;
+  background: #f0f2f5;
+  color: #1f2933;
+  cursor: pointer;
+}
+.fsb-stepper-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.fsb-stepper-value {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Buttons */
+.fsb-btn {
+  padding: 10px 16px;
+  border: 1px solid #d2d6dc;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 500;
+  background: #ffffff;
+  color: #1f2933;
+  cursor: pointer;
+}
+.fsb-btn-primary {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: #ffffff;
+}
+.fsb-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Banner (network error) */
+.fsb-banner {
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+.fsb-banner-title {
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: #b91c1c;
+}
+.fsb-banner-text {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: #7f1d1d;
+}
+
+/* ---------- Success state ---------- */
+.fsb-success {
+  text-align: center;
+}
+.fsb-success-title {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+.fsb-success-message {
+  margin: 0 0 20px;
+  color: #3e4c59;
+}
+.fsb-summary {
+  margin: 0 0 20px;
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+.fsb-summary > div {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e4e7eb;
+}
+.fsb-summary dt {
+  color: #616e7c;
+  font-size: 0.875rem;
+}
+.fsb-summary dd {
+  margin: 0;
+  font-weight: 500;
+}
+.fsb-success-email-note {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  color: #616e7c;
+}
+
+/* ---------- Attribution ---------- */
+.fsb-attribution {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #7b8794;
+}
+.fsb-attribution a {
+  color: #52606d;
+  text-decoration: none;
+}
+.fsb-attribution a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Responsive (container queries) ---------- */
+/* Roomier layout when the widget has space (standalone page, wide embed). */
+@container (min-width: 560px) {
+  /* Paired rows (first/last name, email/phone) go side by side. */
+  .fsb-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Date/time/guests share one row. */
+  .fsb-row-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .fsb-form > .fsb-banner,
+  .fsb-form > .fsb-btn-primary {
+    grid-column: 1 / -1;
+  }
+  .fsb-header {
+    flex-wrap: nowrap;
+  }
+  .fsb-summary > div {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* RTL support for future locales */
+.fsb-shell[dir='rtl'] .fsb-summary > div {
+  grid-template-columns: 2fr 1fr;
+}

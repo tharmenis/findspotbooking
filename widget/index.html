@@ -1,0 +1,18 @@
+ <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Findspot widget dev</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>
+        <main id="findspot-root"></main>
+        <script type="module" src="/src/entry-standalone.jsx"></script>
+        <script>
+          // Pull the listing id from the URL so deep-linking works on the dev server.
+          const id = new URLSearchParams(location.search).get('id');
+          console.log('id is', id);
+          if (id) document.getElementById('findspot-root').dataset.publicId = id;
+        </script>
+      </body>
+    </html>

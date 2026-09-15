@@ -1,0 +1,67 @@
+{
+  "app": {
+    "bookingProvidedBy": "Buchung bereitgestellt von",
+    "findspotLink": "findspot.net",
+    "loading": "Wird geladen…",
+    "unavailableTitle": "Buchung vorübergehend nicht verfügbar",
+    "unavailableText": "Dieses Angebot nimmt derzeit keine Online-Buchungen an.",
+    "notFoundTitle": "Angebot nicht gefunden",
+    "notFoundText": "Dieses Angebot ist nicht für Online-Buchungen verfügbar."
+  },
+  "header": {
+    "location": "Standort",
+    "hours": "Öffnungszeiten",
+    "hoursToday": "Heute: {{hours}}",
+    "switchTo": "Sprache wechseln zu {{language}}"
+  },
+  "form": {
+    "date": "Datum",
+    "datePlaceholder": "Datum auswählen",
+    "time": "Uhrzeit",
+    "timePlaceholder": "Uhrzeit auswählen",
+    "guests": "Gäste",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "phone": "Telefon",
+    "countryCode": "Landesvorwahl",
+    "nationalNumber": "Telefonnummer",
+    "email": "E-Mail",
+    "comments": "Anmerkungen",
+    "commentsPlaceholder": "Gibt es etwas, das wir wissen sollten? (optional)",
+    "commentsHint": "{{count}} Zeichen übrig",
+    "submit": "Jetzt buchen",
+    "submitting": "Wird gebucht…",
+    "errors": {
+      "dateRequired": "Bitte wählen Sie ein Datum.",
+      "datePast": "Bitte wählen Sie ein zukünftiges Datum.",
+      "timeRequired": "Bitte wählen Sie eine Uhrzeit.",
+      "guestsRequired": "Bitte wählen Sie die Anzahl der Gäste.",
+      "firstNameRequired": "Bitte geben Sie Ihren Vornamen ein.",
+      "lastNameRequired": "Bitte geben Sie Ihren Nachnamen ein.",
+      "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer für das ausgewählte Land ein.",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "commentsTooLong": "Anmerkungen dürfen höchstens 500 Zeichen lang sein.",
+      "server": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+      "slotTaken": "Diese Uhrzeit wurde gerade von jemand anderem gebucht. Bitte wählen Sie eine neue Uhrzeit.",
+      "noSlots": "An diesem Datum sind keine Zeiten verfügbar.",
+      "noSlotsPast": "Keine vergangenen Daten."
+    }
+  },
+  "success": {
+    "title": "Buchung bestätigt",
+    "message": "Ihr Tisch ist reserviert. Wir sehen uns bald!",
+    "listing": "Angebot",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "guests": "Gäste",
+    "guestsCount_one": "{{count}} Gast",
+    "guestsCount_other": "{{count}} Gäste",
+    "addToCalendar": "Zum Kalender hinzufügen",
+    "weSentYouAnEmail": "Eine Bestätigungs-E-Mail ist unterwegs."
+  },
+  "retry": {
+    "title": "Etwas ist schiefgelaufen",
+    "message": "Ihre Buchung konnte nicht abgeschlossen werden. Ihre Angaben sind noch da — bitte versuchen Sie es erneut.",
+    "button": "Erneut versuchen"
+  }
+}

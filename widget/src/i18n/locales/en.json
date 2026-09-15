@@ -1,0 +1,67 @@
+{
+  "app": {
+    "bookingProvidedBy": "Booking provided by",
+    "findspotLink": "findspot.net",
+    "loading": "Loading…",
+    "unavailableTitle": "Booking temporarily unavailable",
+    "unavailableText": "This listing is not currently accepting online bookings.",
+    "notFoundTitle": "Listing not found",
+    "notFoundText": "This listing is not available for online booking."
+  },
+  "header": {
+    "location": "Location",
+    "hours": "Open hours",
+    "hoursToday": "Today: {{hours}}",
+    "switchTo": "Switch language to {{language}}"
+  },
+  "form": {
+    "date": "Date",
+    "datePlaceholder": "Select a date",
+    "time": "Time",
+    "timePlaceholder": "Select a time",
+    "guests": "Guests",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone",
+    "countryCode": "Country code",
+    "nationalNumber": "Phone number",
+    "email": "Email",
+    "comments": "Comments",
+    "commentsPlaceholder": "Anything we should know? (optional)",
+    "commentsHint": "{{count}} characters left",
+    "submit": "Book now",
+    "submitting": "Booking…",
+    "errors": {
+      "dateRequired": "Please choose a date.",
+      "datePast": "Please choose a future date.",
+      "timeRequired": "Please choose a time.",
+      "guestsRequired": "Please choose the number of guests.",
+      "firstNameRequired": "Please enter your first name.",
+      "lastNameRequired": "Please enter your last name.",
+      "phoneInvalid": "Please enter a valid phone number for the selected country.",
+      "emailInvalid": "Please enter a valid email address.",
+      "commentsTooLong": "Comments must be 500 characters or fewer.",
+      "server": "Something went wrong. Please try again.",
+      "slotTaken": "That time was just booked by someone else. Please choose a new time.",
+      "noSlots": "No times available on this date.",
+      "noSlotsPast": "No past dates."
+    }
+  },
+  "success": {
+    "title": "Booking confirmed",
+    "message": "Your table is booked. See you soon!",
+    "listing": "Listing",
+    "date": "Date",
+    "time": "Time",
+    "guests": "Guests",
+    "guestsCount_one": "{{count}} guest",
+    "guestsCount_other": "{{count}} guests",
+    "addToCalendar": "Add to calendar",
+    "weSentYouAnEmail": "A confirmation email is on its way."
+  },
+  "retry": {
+    "title": "Something went wrong",
+    "message": "We couldn't complete your booking. Your details are still here — please try again.",
+    "button": "Try again"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "app": {
+    "bookingProvidedBy": "Réservation fournie par",
+    "findspotLink": "findspot.net",
+    "loading": "Chargement…",
+    "unavailableTitle": "Réservation temporairement indisponible",
+    "unavailableText": "Cet établissement n'accepte pas actuellement les réservations en ligne.",
+    "notFoundTitle": "Établissement introuvable",
+    "notFoundText": "Cet établissement n'est pas disponible pour la réservation en ligne."
+  },
+  "header": {
+    "location": "Adresse",
+    "hours": "Horaires d'ouverture",
+    "hoursToday": "Aujourd'hui : {{hours}}",
+    "switchTo": "Changer la langue en {{language}}"
+  },
+  "form": {
+    "date": "Date",
+    "datePlaceholder": "Choisir une date",
+    "time": "Heure",
+    "timePlaceholder": "Choisir une heure",
+    "guests": "Convives",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "phone": "Téléphone",
+    "countryCode": "Indicatif",
+    "nationalNumber": "Numéro de téléphone",
+    "email": "E-mail",
+    "comments": "Commentaires",
+    "commentsPlaceholder": "Y a-t-il quelque chose que nous devrions savoir ? (facultatif)",
+    "commentsHint": "{{count}} caractères restants",
+    "submit": "Réserver",
+    "submitting": "Réservation…",
+    "errors": {
+      "dateRequired": "Veuillez choisir une date.",
+      "datePast": "Veuillez choisir une date future.",
+      "timeRequired": "Veuillez choisir une heure.",
+      "guestsRequired": "Veuillez choisir le nombre de convives.",
+      "firstNameRequired": "Veuillez saisir votre prénom.",
+      "lastNameRequired": "Veuillez saisir votre nom.",
+      "phoneInvalid": "Veuillez saisir un numéro de téléphone valide pour le pays sélectionné.",
+      "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+      "commentsTooLong": "Les commentaires ne peuvent pas dépasser 500 caractères.",
+      "server": "Une erreur s'est produite. Veuillez réessayer.",
+      "slotTaken": "Cet horaire vient d'être réservé par quelqu'un d'autre. Veuillez choisir un nouvel horaire.",
+      "noSlots": "Aucun horaire disponible à cette date.",
+      "noSlotsPast": "Aucune date passée."
+    }
+  },
+  "success": {
+    "title": "Réservation confirmée",
+    "message": "Votre table est réservée. À bientôt !",
+    "listing": "Établissement",
+    "date": "Date",
+    "time": "Heure",
+    "guests": "Convives",
+    "guestsCount_one": "{{count}} convive",
+    "guestsCount_other": "{{count}} convives",
+    "addToCalendar": "Ajouter au calendrier",
+    "weSentYouAnEmail": "Un e-mail de confirmation est en route."
+  },
+  "retry": {
+    "title": "Une erreur s'est produite",
+    "message": "Nous n'avons pas pu finaliser votre réservation. Vos informations sont toujours là — veuillez réessayer.",
+    "button": "Réessayer"
+  }
+}

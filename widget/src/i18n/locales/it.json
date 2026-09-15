@@ -1,0 +1,67 @@
+{
+  "app": {
+    "bookingProvidedBy": "Prenotazione fornita da",
+    "findspotLink": "findspot.net",
+    "loading": "Caricamento…",
+    "unavailableTitle": "Prenotazione temporaneamente non disponibile",
+    "unavailableText": "Questa attività al momento non accetta prenotazioni online.",
+    "notFoundTitle": "Attività non trovata",
+    "notFoundText": "Questa attività non è disponibile per la prenotazione online."
+  },
+  "header": {
+    "location": "Posizione",
+    "hours": "Orari di apertura",
+    "hoursToday": "Oggi: {{hours}}",
+    "switchTo": "Cambia lingua in {{language}}"
+  },
+  "form": {
+    "date": "Data",
+    "datePlaceholder": "Seleziona una data",
+    "time": "Ora",
+    "timePlaceholder": "Seleziona un'ora",
+    "guests": "Ospiti",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "phone": "Telefono",
+    "countryCode": "Prefisso",
+    "nationalNumber": "Numero di telefono",
+    "email": "Email",
+    "comments": "Commenti",
+    "commentsPlaceholder": "C'è qualcosa che dovremmo sapere? (facoltativo)",
+    "commentsHint": "{{count}} caratteri rimasti",
+    "submit": "Prenota ora",
+    "submitting": "Prenotazione…",
+    "errors": {
+      "dateRequired": "Scegli una data.",
+      "datePast": "Scegli una data futura.",
+      "timeRequired": "Scegli un'ora.",
+      "guestsRequired": "Scegli il numero di ospiti.",
+      "firstNameRequired": "Inserisci il tuo nome.",
+      "lastNameRequired": "Inserisci il tuo cognome.",
+      "phoneInvalid": "Inserisci un numero di telefono valido per il paese selezionato.",
+      "emailInvalid": "Inserisci un indirizzo email valido.",
+      "commentsTooLong": "I commenti non possono superare i 500 caratteri.",
+      "server": "Qualcosa è andato storto. Riprova.",
+      "slotTaken": "Questo orario è stato appena prenotato da qualcun altro. Scegli un nuovo orario.",
+      "noSlots": "Nessun orario disponibile in questa data.",
+      "noSlotsPast": "Nessuna data passata."
+    }
+  },
+  "success": {
+    "title": "Prenotazione confermata",
+    "message": "Il tuo tavolo è prenotato. A presto!",
+    "listing": "Attività",
+    "date": "Data",
+    "time": "Ora",
+    "guests": "Ospiti",
+    "guestsCount_one": "{{count}} ospite",
+    "guestsCount_other": "{{count}} ospiti",
+    "addToCalendar": "Aggiungi al calendario",
+    "weSentYouAnEmail": "Un'email di conferma è in arrivo."
+  },
+  "retry": {
+    "title": "Qualcosa è andato storto",
+    "message": "Non siamo riusciti a completare la prenotazione. I tuoi dati sono ancora qui — riprova.",
+    "button": "Riprova"
+  }
+}

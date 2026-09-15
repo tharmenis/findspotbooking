@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Findspot booking widget - Checkup Report</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+		.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+		.report-section { border: 1px solid #222226; background: #0a0a0b; position: relative; }
+		.corner-box { position: absolute; width: 20px; height: 20px; border: 1px solid #222226; background: #000; }
+	</style>
+</head>
+<body class="bg-black text-[#fafafa]">
+	<main class="mx-auto w-full max-w-6xl px-5 py-8 md:px-10 md:py-12">
+		<header class="report-section mb-8 p-6 md:p-8">
+			<div class="corner-box left-0 top-0 -translate-x-1/2 -translate-y-1/2"></div>
+			<div class="corner-box right-0 top-0 translate-x-1/2 -translate-y-1/2"></div>
+			<div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+				<div>
+					<div class="mono mb-2 text-xs tracking-widest text-[#666]">// CHECKUP</div>
+					<h1 class="text-4xl font-bold tracking-tight md:text-6xl">Findspot booking widget</h1>
+				</div>
+				<div class="mono text-left text-xs text-[#666] md:text-right">
+					<div>COMMANDCODE REPORT</div>
+					<div class="text-[#444]">2026-08-20</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="corner-box left-0 top-0 -translate-x-1/2 -translate-y-1/2"></div>
+			<div class="corner-box right-0 top-0 translate-x-1/2 -translate-y-1/2"></div>
+			<div class="grid gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+				<div>
+					<div class="mono mb-2 text-xs tracking-widest text-[#666]">// OVERALL</div>
+					<div class="text-6xl font-bold tracking-tight md:text-7xl">44</div>
+					<div class="mt-1 text-lg text-[#666]">/ 60</div>
+					<div class="mt-4 inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-3 py-1 text-sm text-[#fbbf24]">NEEDS CHANGES</div>
+				</div>
+				<div>
+					<div class="mono mb-3 text-xs tracking-widest text-[#666]">// TL;DR</div>
+					<p class="text-sm leading-6 text-[#a0a0a0]">The booking flow is solid: correct controls, correct error handling, clean card structure. The real gaps are mobile-input zoom (sub-16px fields), a name row that never goes two-column, and a phone grid that squeezes in narrow embeds.</p>
+					<p class="mt-4 text-sm leading-6 text-[#fbbf24]">PRIMARY RECOMMENDATION: Fix the form-control font size to 1rem and give the name row a real two-column treatment in the container query. Then polish the error banner's non-color signal.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// HEURISTIC SCORES</div>
+			<div class="overflow-x-auto">
+				<table class="w-full min-w-[720px] border-collapse text-sm">
+					<thead>
+						<tr class="border-b border-[#222226] text-left mono text-xs text-[#666]">
+							<th class="py-3 pr-4 font-normal">#</th>
+							<th class="py-3 pr-4 font-normal">HEURISTIC</th>
+							<th class="py-3 pr-4 font-normal">SCORE</th>
+							<th class="py-3 font-normal">KEY FINDING</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">1</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Intentionality</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">7/10</td>
+							<td class="py-4 text-[#a0a0a0]">Purposeful card layout; generic blue accent and stock spacing</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">2</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Readability</td>
+							<td class="py-4 pr-4 text-[#34d399]">8/10</td>
+							<td class="py-4 text-[#a0a0a0]">Clear hierarchy; muted grays read well; small labels are OK</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">3</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Usability</td>
+							<td class="py-4 pr-4 text-[#34d399]">8/10</td>
+							<td class="py-4 text-[#a0a0a0]">Core flow is logical; stepper + select are the right controls</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">4</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Responsiveness</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">6/10</td>
+							<td class="py-4 text-[#a0a0a0]">Sub-16px inputs zoom on iOS; name row never 2-col; phone grid squeezes</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">5</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Speed</td>
+							<td class="py-4 pr-4 text-[#34d399]">9/10</td>
+							<td class="py-4 text-[#a0a0a0]">Lazy i18n, tiny widget, no layout shift observed</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">6</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Accessibility</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">6/10</td>
+							<td class="py-4 text-[#a0a0a0]">Keyboard works; focus visible; banner relies on hue; disabled-submit discovery</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// COGNITIVE LOAD / RISK</div>
+			<div class="grid gap-6 md:grid-cols-2">
+				<div>
+					<div class="mb-3 text-xl font-semibold">MODERATE</div>
+					<ul class="space-y-3 text-sm text-[#a0a0a0]">
+						<li><span class="mono mr-2 text-[#34d399]">PASS</span>Field-to-field order matches the visitor's mental model</li>
+						<li><span class="mono mr-2 text-[#fbbf24]">WATCH</span>Name row stays stacked even on wide screens</li>
+						<li><span class="mono mr-2 text-[#fbbf24]">WATCH</span>Phone country select can truncate in narrow embeds</li>
+						<li><span class="mono mr-2 text-[#ef4444]">FAIL</span>Sub-16px inputs trigger iOS zoom-on-focus</li>
+					</ul>
+				</div>
+				<div>
+					<div class="mono mb-3 text-xs tracking-widest text-[#666]">// NEXT MODES</div>
+					<div class="flex flex-wrap gap-2">
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/responsive</span>
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/a11y</span>
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/interaction</span>
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/refine</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// WHAT'S WORKING</div>
+			<div class="grid gap-4 md:grid-cols-3">
+				<article class="border border-[#1f1f24] p-4">
+					<h2 class="mb-2 text-sm font-semibold">Correct controls</h2>
+					<p class="text-sm leading-6 text-[#a0a0a0]">Native date, optgroup'd select, stepper, phone split, email — all match the spec.</p>
+				</article>
+				<article class="border border-[#1f1f24] p-4">
+					<h2 class="mb-2 text-sm font-semibold">Right error model</h2>
+					<p class="text-sm leading-6 text-[#a0a0a0]">409 keeps fields + inline time warning; network keeps everything + retry; 422 maps to fields.</p>
+				</article>
+				<article class="border border-[#1f1f24] p-4">
+					<h2 class="mb-2 text-sm font-semibold">i18n + layout</h2>
+					<p class="text-sm leading-6 text-[#a0a0a0]">Language lives above the form; container-query responsive; self-contained shadow-DOM CSS.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// PRIORITY ISSUES</div>
+			<div class="space-y-5">
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">HIGH</div>
+					<h2 class="mb-2 text-lg font-semibold">Sub-16px inputs cause iOS zoom-on-focus</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">All form controls render below 16px on small screens; iOS Safari auto-zooms into the field on focus, breaking layout mid-form. Location: <span class="mono">widget/src/widget.css:150</span> and the control base.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: Set <span class="mono">font-size: 1rem</span> on all input/select/textarea at widths below 640px, or unconditionally on form controls; keep labels at 0.875rem.</div>
+				</article>
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">MEDIUM</div>
+					<h2 class="mb-2 text-lg font-semibold">Name row never goes two-column</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">First/last name stays stacked even on wide standalone. Location: <span class="mono">widget/src/widget.css:189</span> (<span class="mono">.fsb-row</span> has no column template; the 560px container query never touches it).</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: At <span class="mono">@container (min-width: 560px)</span> add <span class="mono">.fsb-row { grid-template-columns: 1fr 1fr }</span> so names sit side by side.</div>
+				</article>
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">MEDIUM</div>
+					<h2 class="mb-2 text-lg font-semibold">Phone grid squeezes in narrow embeds</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">The <span class="mono">2fr/3fr</span> phone row truncates "United Kingdom (+44)" in a ~300px embed. Location: <span class="mono">widget/src/widget.css:189-192</span>.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: Use <span class="mono">minmax(0,1fr) minmax(0,2.5fr)</span> and let the select label truncate, or stack on the narrowest widths.</div>
+				</article>
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">LOW</div>
+					<h2 class="mb-2 text-lg font-semibold">Error banner is hue-only</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">The network-error banner is red-fill + red text with no icon; the distinction is color alone. Location: <span class="mono">widget/src/ReservationForm.jsx:294</span>.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: Add a small warning icon or bold marker so the state reads without color.</div>
+				</article>
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">LOW</div>
+					<h2 class="mb-2 text-lg font-semibold">Submit shows no progress affordance</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0">Button swaps to "Booking…" but stays static; no spinner or busy state. Location: <span class="mono">widget/src/ReservationForm.jsx:303</span>.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: Add a lightweight inline spinner or set <span class="mono">aria-busy</span> on the form during submit.</div>
+				</article>
+			</div>
+		</section>
+
+		<footer class="mono py-8 text-center text-xs tracking-widest text-[#444]">
+			Generated with CommandCode - 2026-08-20
+		</footer>
+	</main>
+</body>
+</html>

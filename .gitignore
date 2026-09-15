@@ -1,0 +1,21 @@
+node_modules/
+
+# env / secrets
+.env
+.env.local
+
+# widget build output (widget/ -> server/src/public per 06-express-app-structure.md)
+server/src/public/
+
+# build artifacts
+dist/
+coverage/
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
