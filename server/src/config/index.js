@@ -49,7 +49,7 @@ export const config = {
   // Normalized to a bare hostname. Used by originGate for the "self-origin /
   // no check needed" standalone case.
   get selfOrigin() {
-    console.log('SELF_ORIGIN:', process.env.SELF_ORIGIN);
+
     return normalizeHostname(process.env.SELF_ORIGIN || 'book.findspot.net');
   },
 

@@ -113,6 +113,12 @@
   line-height: 1.3;
   overflow-wrap: break-word;
 }
+
+@media screen and (max-width:768px){
+  .fsb-title{
+    font-size:0.98rem;
+  }
+}
 .fsb-location {
   margin: 4px 0 0;
   color: #616e7c;
@@ -127,6 +133,12 @@
 .fsb-contact-link {
   color: #1a73e8;
   text-decoration: none;
+}
+
+@media screen and (max-width:768px){
+  .fsb-contact-link{
+    font-size:.0.8rem;
+  }
 }
 .fsb-contact-link:hover,
 .fsb-contact-link:focus-visible {
@@ -194,6 +206,14 @@
   border: 1px solid #e4e7eb;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(16, 24, 40, 0.12);
+}
+
+@media screen and (max-width:577px){
+  .fsb-lang-menu{
+    right:auto;
+    left:0;
+    top: calc(100% + 0);
+  }
 }
 .fsb-lang-option {
   display: flex;
@@ -576,9 +596,7 @@
   .fsb-form > .fsb-btn-primary {
     grid-column: 1 / -1;
   }
-  .fsb-header {
-    flex-wrap: nowrap;
-  }
+ 
   .fsb-summary > div {
     grid-template-columns: 1fr 3fr;
   }
