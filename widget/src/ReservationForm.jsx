@@ -15,7 +15,7 @@ import { hasAnySlots } from './availability.js';
 
 const GUEST_MIN = 1;
 const GUEST_MAX = 12;
-const COMMENTS_MAX = 500;
+const COMMENTS_MAX = 60;
 
 export default function ReservationForm({ listing, publicId, lang, onSuccess }) {
   const { t } = useTranslation();
